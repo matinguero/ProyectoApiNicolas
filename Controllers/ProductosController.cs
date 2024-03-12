@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoApiNicolas.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,9 +12,13 @@ namespace ProyectoApiNicolas.Controllers
     {
 
         [HttpGet]
-        public IEnumerable<string> ObtenerProductos()
+        [Route("api/ObtenerProductos")]
+        public IEnumerable<Models.Producto> ObtenerProductos()
         {
-            return new string[] { "value1", "value2" };
+            string sRet = "";
+            List<Models.Producto> ListaProductos = (List<Producto>)Producto.ObtenerProductos(-1, ref sRet);
+
+            return ListaProductos;
         }
         // GET api/<controller>
         public IEnumerable<string> Get()
