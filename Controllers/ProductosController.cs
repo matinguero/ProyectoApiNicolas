@@ -27,9 +27,20 @@ namespace ProyectoApiNicolas.Controllers
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        [HttpGet]
+        [Route("api/ObtenerProducto")]
+        public Models.Producto ObtenerProducto(int id)
         {
-            return "value";
+
+            string sRet = "";
+            Models.Producto Producto = (Producto)Producto.ObtenerProducto(id,-1, ref sRet);
+
+            return Producto;
+
+            //Models.Producto producto = new Models.Producto();
+            //producto.id = 1;
+            //producto.Nombre = "Producto Prueba";
+            //return producto;
         }
 
         // POST api/<controller>
