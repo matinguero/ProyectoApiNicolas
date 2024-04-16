@@ -20,6 +20,7 @@ namespace ProyectoApiNicolas.Controllers
 
             return ListaProductos;
         }
+
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
@@ -41,6 +42,18 @@ namespace ProyectoApiNicolas.Controllers
             //producto.id = 1;
             //producto.Nombre = "Producto Prueba";
             //return producto;
+        }
+
+        [HttpGet]
+        [Route("api/ObtenerCategoria")]
+        public Models.Categoria ObtenerCategorias()
+        {
+
+            string sRet = "";
+            List<Models.Categoria> ListaCategorias = (List<Categoria>)Categoria.ObtenerCategorias(ref sRet);
+
+            return ListaCategorias;
+            
         }
 
         // POST api/<controller>
