@@ -11,14 +11,36 @@ namespace ProyectoApiNicolas
         {
             // Configuración y servicios de Web API
 
-            // Rutas de Web API
-            config.MapHttpAttributeRoutes();
+            // Rutas de Web API config.MapHttpAttributeRoutes();
+
+
+            //config.Routes.MapHttpRoute(
+            //    name: "TraerCategorias",
+            //    routeTemplate: "api/Productos/ObtenerCategorias",
+            //    defaults: new { }
+            //);
+
+
+
+            //config.Routes.MapHttpRoute(
+            //    name: "GetProductos",
+            //    routeTemplate: "api/Productos/GetProducto/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
+
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                name: "DefaultApi2",
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
