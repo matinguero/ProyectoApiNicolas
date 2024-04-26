@@ -191,7 +191,7 @@ namespace ProyectoApiNicolas.Models
                 //MySqlCommand.Parameters.AddWithValue("@id_categoria", nuevoProducto.id_categoria);
                 //MySqlCommand.Parameters.AddWithValue("@Stock", nuevoProducto.Stock);
 
-                //TO-DO: CLASE 81 TERMINADA
+                //TO-DO: CLASE 82 TERMINADA
                 // Agrego los Parámetros al SPROC (OUT)
 
                 SqlParameter pariProductoID = new SqlParameter("@producto_id", SqlDbType.Int);
