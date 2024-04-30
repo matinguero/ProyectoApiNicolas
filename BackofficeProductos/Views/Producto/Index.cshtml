@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a href="/Productos/DetalleProducto/0/0">Nuevo Producto</a>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+
+                <th>Producto</th>
+
+                <th>Precio Unitario</th>
+
+                <th>Activo?</th>
+
+                <th>Categorías</th>
+
+                <th>Detalle</th>
+
+            </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.Nombre</td>
+
+
+                    <td>@item.Precio.ToString("C")</td>
+
+                    <td>@item.activo</td>
+
+
+                    <td>
+
+                        <a href="/Producto/Categorias/@item.id">Categorías Producto</a>
+
+
+                    </td>
+
+
+                    <td>
+
+                        <a href="/Producto/DetalleProducto/@item.id">Detalle Producto</a>
+
+
+                    </td>
+
+
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@if (Session["MENSAJEDB"] != null)
+{
+    <script>
+    alert('@Session["MENSAJEDB"].ToString()');
+    </script>
+
+    Session["MENSAJEDB"] = null;
+}
+
