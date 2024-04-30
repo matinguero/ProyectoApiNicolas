@@ -1,6 +1,9 @@
 ﻿using ProyectoApiNicolas.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -146,7 +149,48 @@ namespace ProyectoApiNicolas.Controllers
 
         //TODO: Agregar Método de AGREGAR CATEGORIA A UN PRODUCTO
 
-        //TODO: Agregar Metodo de ELIMINAR CATEGORIA DE UN PRODUCTO
+        public IHttpActionResult EliminarCategoriaProducto(int id_producto, int id_categoria)
+        {
+            //CODIGO PARA INSERTAR UNA CATEGORIA A UN PRODUCTO
+
+            string sRet = "";
+            sRet = Models.Producto.EliminarCategoriaProducto(id_producto, id_categoria);
+
+
+            //Si salio todo ok
+            if (sRet == "")
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest("Error al eliminar categoria al producto: " + sRet);
+            }
+
+
+        }
+
+        [HttpDelete]
+        public IHttpActionResult EliminarProducto(int id_producto)
+        {
+            //CODIGO PARA INSERTAR UNA CATEGORIA A UN PRODUCTO
+
+            string sRet = "";
+            sRet = Models.Producto.EliminarProducto(id_producto);
+
+
+            //Si salio todo ok
+            if (sRet == "")
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest("Error al eliminar producto: " + sRet);
+            }
+
+
+        }
 
 
 

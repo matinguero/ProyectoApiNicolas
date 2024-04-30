@@ -318,6 +318,85 @@ namespace ProyectoApiNicolas.Models
             return sRet;
         }
 
+        public static string EliminarCategoriaProducto(int id_producto, int id_categoria)
+        {
+            string sRet = "";
+
+            SqlConnection MyConnection = default(SqlConnection);
+            SqlCommand MySqlCommand = default(SqlCommand);
+
+            try
+            {
+                MyConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
+                MySqlCommand = new SqlCommand("spEliminarCategoriaProducto", MyConnection);
+                MySqlCommand.CommandType = CommandType.StoredProcedure;
+
+
+
+
+                MySqlCommand.Parameters.AddWithValue("@id_producto", id_producto);
+                MySqlCommand.Parameters.AddWithValue("@id_categoria", id_categoria);
+
+
+
+
+                MyConnection.Open();
+                MySqlCommand.ExecuteNonQuery();
+                MyConnection.Close();
+                MyConnection.Dispose();
+
+
+                sRet = "";
+
+            }
+            catch (Exception ex)
+            {
+                sRet = ex.Message;
+
+            }
+
+
+
+            return sRet;
+        }
+        public static string EliminarProducto(int id_producto)
+        {
+            string sRet = "";
+
+            SqlConnection MyConnection = default(SqlConnection);
+            SqlCommand MySqlCommand = default(SqlCommand);
+
+            try
+            {
+                MyConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
+                MySqlCommand = new SqlCommand("spEliminarProducto", MyConnection);
+                MySqlCommand.CommandType = CommandType.StoredProcedure;
+
+
+
+
+                MySqlCommand.Parameters.AddWithValue("@id_producto", id_producto);
+
+
+                MyConnection.Open();
+                MySqlCommand.ExecuteNonQuery();
+                MyConnection.Close();
+                MyConnection.Dispose();
+
+
+                sRet = "";
+
+            }
+            catch (Exception ex)
+            {
+                sRet = ex.Message;
+
+            }
+
+
+
+            return sRet;
+        }
 
 
     }
