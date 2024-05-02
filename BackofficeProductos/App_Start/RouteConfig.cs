@@ -14,6 +14,12 @@ namespace BackofficeProductos
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "CategoriaProducto",
+                url: "Producto/Categorias/{idProducto}",
+                defaults: new { controller = "Producto", action = "Categorias", idProducto = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

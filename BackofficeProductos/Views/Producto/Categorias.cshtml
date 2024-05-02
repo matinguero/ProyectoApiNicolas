@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BackofficeProductos.Models.Categorias>
+
+@{
+    var Categorias = ViewData["Categorias"] as List<BackofficeProductos.Models.Categorias>;
+}
+
+
+@{
+    ViewBag.Title = "Categorias";
+}
+
+@*<a href="/Productos/AgregarCategoria/@ViewBag.IDProducto">Nueva Categoría</a>*@
+
+
+
+<button type="button" id="NuevaCategoria" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Nueva Categoría
+</button>
+@if (@ViewBag.ErrorCategorias != "")
+{
+    <div class="alert-danger">@ViewBag.ErrorCategorias</div>
+}
+
+
+
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+
+
+
+                <th>Categoria</th>
+
+
+                <th>Eliminar</th>
+
+            </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+            @foreach (var item in Model)
+            {
+                <tr>
+
+
+
+
+                    <td>@item.Descripcion</td>
+
+
+                    <td>
+
+                        <a href="/Productos/CategoriasEliminar/@item.id/@item.id" onclick="javascript: return confirm('Está seguro de eliminar la categoría');">Eliminar Categoria al Producto</a>
+
+
+                    </td>
+
+
+
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

@@ -19,7 +19,7 @@ namespace BackofficeProductos.Controllers
             //EN LUGAR DE IR A UNA BASE DE DATOS VOY A BUSCAR AL SERVICIO API REST EL LISTADO DE PRODUCTOS
 
             //ENDPOINT DE APIREST
-            Uri url = new Uri(String.Format("https://localhost:44349/api/Productos/GetProductos"));
+            Uri url = new Uri(String.Format("https://localhost:44302/api/Productos/GetProductos"));
 
             //CREO EL REQUEST CON SUS CARACTERISTICAS
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
